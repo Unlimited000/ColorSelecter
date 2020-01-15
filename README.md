@@ -13,4 +13,4 @@
 > 본 스크립트는 MIT 라이센스를 따릅니다.
 
 ## 개발자 정보
-> Daniel Lee ([bbbb7788@naver.com](mailto:bbbb7788@naver.com))
+Daniel Lee ([bbbb7788@naver.com](mailto:bbbb7788@naver.com))
