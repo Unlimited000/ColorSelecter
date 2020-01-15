@@ -1,0 +1,91 @@
+<!doctype HTML>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="author" content="GJ Lee" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <title>Color Selector v0.01</title>
+        <link href="css/common.css" rel="stylesheet" />
+        <link href="css/bootstrap.css" rel="stylesheet" />
+        <script src="script/jquery-3.4.1.min.js"></script>
+        <script src="script/vue.min.js"></script>
+        <script src="script/bootstrap.js"></script>
+    </head>
+    
+    <body>
+        
+        <div id="cs" class="container">
+            <div class="card">
+                <div class="card-header">
+                    <span class="text-primary"><b>Color Selector</b></span>
+                    <span class="float-right text-muted">v.0.01</span>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3">
+                            <div id="chip" class="rounded border border-secondary shadow-sm"></div>
+                        </div>
+                        <div class="col-9">
+                            <input type="text" class="form-control mb-2" readonly value="rgb(255,255,255)" v-model="rgbcode" />
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">#</span>
+                                </div>
+                                <input type="text" class="form-control" value="FFFFFF" v-model="hexcode" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <table class="table mt-4 table-sm">
+                            <colgroup>
+                                <col width="" />
+                                <col width="50%" />
+                                <col width="" />
+                                <col width="" />
+                            </colgroup>
+                            <tr>
+                                <th>#</th>
+                                <th>Slider</th>
+                                <th>DEC</th>
+                                <th>HEX</th>
+                            </tr>
+                            <tr>
+                                <td class="pt-2">R</td>
+                                <td><input @mousemove="makecode" v-model="reddec" type="range" class="form-control-range mt-2" min="0" max="255" /></td>
+                                <td><input @keyup="makecode" v-model="reddec" type="number" class="form-control" value="255" /></td>
+                                <td><input @keyup="makecode" v-model="redhex" type="text" class="form-control" value="FF" /></td>
+                            </tr>
+                            <tr>
+                                <td class="pt-2">G</td>
+                                <td><input @mousemove="makecode" v-model="greendec" type="range" class="form-control-range mt-2" min="0" max="255" /></td>
+                                <td><input @keyup="makecode" v-model="greendec" type="number" class="form-control" value="255" /></td>
+                                <td><input @keyup="makecode" v-model="greenhex" type="text" class="form-control" value="FF" /></td>
+                            </tr>
+                            <tr>
+                                <td class="pt-2">B</td>
+                                <td><input @mousemove="makecode" v-model="bluedec" type="range" class="form-control-range mt-2" min="0" max="255" /></td>
+                                <td><input @keyup="makecode" v-model="bluedec" type="number" class="form-control" value="255" /></td>
+                                <td><input @keyup="makecode" v-model="bluehex" type="text" class="form-control" value="FF" /></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <button @click="addchip" type="button" class="btn border-primary">컬러 추가하기</button>
+                    <div class="row">
+                        <input type="text" id="copyform" style="opacity: 0; position: fixed; top: -10000px;" />
+                        <div class="card chip" v-for="(item, index) in chips" style="overflow: hidden;">
+                            <div class="card-body" v-bind:style="{backgroundColor: '#'+item}"></div>
+                            <div @click="copycode('#'+item, index)" @mouseover="showinfo(index)" @mouseout="hideinfo(index)" class="card-footer">#{{item}}</div>
+                            <div @click="delchip(index)" class="badge badge-danger" v-bind:no="index">&times;</div>
+                            <div class="copyinfo">copy to clipboard</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer mt-3 text-secondary">
+                    만든이 : 이건정
+                </div>
+            </div>
+        </div>
+        
+        <script src="script/script.js"></script>
+    </body>
+</html>
