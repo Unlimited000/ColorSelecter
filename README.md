@@ -9,5 +9,8 @@
 ## 릴리즈 정보
 웹 버전은 [여기](http://bbbb7788.dothome.co.kr/color_selector)를 눌러 브라우저에서 이용할 수 있습니다.
 
+## 저작권
+> 본 스크립트는 MIT 라이센스를 따릅니다.
+
 ## 개발자 정보
 > Daniel Lee ([bbbb7788@naver.com](mailto:bbbb7788@naver.com))
