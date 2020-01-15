@@ -1,7 +1,7 @@
 # Color Selector
 색상찾기 프로그램
 
-## 개발 배경
+## 
 1. 본 사이트는 HTML, CSS, jQuery, bootstrap, vue.js를 이용하여 제작한 사이트입니다.
 2. 원하는 색상을 hexcode, rgba 범위 내에서 지정하여 찾아 보실 수 있습니다.
 3. 심지어 원하는 여러 색상을 일시적으로 저장해 hexcode를 클립보드에 복사해 사용하실 수 있습니다.
